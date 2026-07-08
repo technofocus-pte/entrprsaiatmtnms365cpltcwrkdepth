@@ -1,12 +1,50 @@
 # Lab 2: Daily Workday Assistant
 
-[TABLE]
+| Item | Details |
+|------|---------|
+| **Estimated Time** | 15 minutes |
+| **What You Build** | A personalized morning briefing that reads your calendar, summarizes important emails, and extracts tasks and follow-ups automatically. |
+| **Skills Introduced** | Daily Briefing, Calendar Management, Email Triage, Task Extraction |
 
-[TABLE]
+---
 
-[TABLE]
+## Lab Objective
 
-[TABLE]
+By the end of this lab, you will know how to:
+
+- Use Copilot Cowork to build a morning briefing that combines calendar, email, and Teams context in a single prompt.
+- Review and prioritize weekly meetings, including spotting missing agendas and scheduling conflicts.
+- Triage your inbox into actionable categories: Needs My Reply, Waiting on Others, and FYI Only.
+- Extract tasks and commitments from email and Teams, then create them in To Do with due dates.
+- Iterate and refine by giving Cowork a follow-up correction and observing how it adjusts.
+
+---
+
+## What is Copilot Cowork?
+
+Copilot Cowork is an AI-powered workspace inside Microsoft 365. Unlike a simple chatbot, Cowork can take multi-step actions across your apps. It reads your Outlook calendar, searches your inbox, scans Teams messages, and creates tasks in Microsoft To Do—all within a single conversation.
+
+Think of it as an intelligent assistant that already has permission to access your work data and surface what matters most, without requiring you to open every app individually.
+
+### Key terms you'll use in this lab
+
+- **New task** – Start a fresh conversation in Cowork (like opening a new chat).
+- **Workspace panel** – The right-hand panel that displays Cowork's live Steps and Skills as it works.
+- **Steps** – The numbered tasks Cowork is completing on your behalf (visible in the Workspace panel).
+- **Skills & Plugins** – The named capabilities Cowork activates for each type of task (for example, **Daily Briefing**, **Calendar Management**).
+
+---
+
+## Before You Begin — Pre-Lab Checklist
+
+Confirm the following before starting the exercises:
+
+- [ ] You have a lab account (provided by your instructor) for Microsoft 365.
+- [ ] Your lab account has at least **2–3 calendar events** scheduled for this week.
+- [ ] Your lab account has received **some emails in the last 3 days**.
+- [ ] You can open a browser and navigate to **https://m365.cloud.microsoft**.
+
+> **Note:** If any of these are missing, ask your instructor before proceeding.
 
 # Exercise 1: Prepare a Personalized Workday Briefing
 
@@ -65,10 +103,28 @@ icons on the left:
 4.  Type or paste the following prompt into the input box, then press
     Send (the arrow icon) or hit Enter:
 
-[TABLE]
+## Sample Prompt — Morning Briefing
 
-[TABLE]
+```text
+Create my morning briefing for today. Include:
 
+1. My meetings today with a one-line purpose for each.
+2. The three most important unread emails and why they matter.
+3. Any deadlines or commitments mentioned in email or Teams in the last 48 hours.
+
+Format it as a short brief that I can read in under two minutes.
+```
+
+> [!TIP]
+> **Why this prompt works well**
+>
+> This prompt is effective because it clearly tells Copilot Cowork:
+>
+> - **What to include:** Meetings, emails, and deadlines.
+> - **How many items:** The **three** most important unread emails.
+> - **How to format the response:** A concise briefing that can be read in **under two minutes**.
+>
+> The more specific your instructions, the more relevant and actionable the response. Vague prompts such as *"Summarize my day"* typically produce more generic results.
 ## Step 3 — Watch Cowork work
 
 After you send the prompt, Cowork begins working immediately. Watch what
@@ -104,7 +160,16 @@ briefing in the main chat area:
 - *At the bottom, “Suggested First Moves” lists specific actions ranked
   by urgency.*
 
-[TABLE]
+### Review Your Morning Briefing
+
+After Copilot Cowork generates your morning briefing, review the results and consider the following questions:
+
+- Are your scheduled meetings listed correctly?
+- Do the **three priority emails** match the ones you would have selected?
+- Do the **Suggested First Moves** reflect real deadlines and commitments, or do they appear to be making assumptions?
+
+> [!NOTE]
+> It is normal if some information is missing or not entirely accurate. Copilot Cowork can only use the data available in your Microsoft 365 environment. In the next exercise, you'll refine the prompt to improve the quality and relevance of the results.
 
 5.  Read the briefing critically. Note one thing that is missing or
     weighted incorrectly — you will use this observation in the next
@@ -117,7 +182,17 @@ briefing in the main chat area:
     personalization rule. Use one of the examples below or write your
     own:
 
-[TABLE]
+## Sample Follow-up — Personalization Rule
+
+```text
+Update my morning briefing with the following preferences:
+
+- Always list emails from my manager first.
+- Ignore newsletters and promotional emails.
+```
+
+> [!TIP]
+> Personalization rules help Copilot Cowork tailor its responses to your work style and priorities. Adding clear preferences—such as prioritizing messages from your manager or excluding low-value emails—results in more relevant and actionable briefings.
 
 ![](./media/e349b3305e70dea87ba669dfb145add9f899362c.png)
 
@@ -136,7 +211,19 @@ briefing in the main chat area:
   entirely. It also notes a caveat: “manager-first” only activates once
   a manager is set in your org profile.*
 
-[TABLE]
+## Exercise 1 Checkpoint
+
+Before moving to **Exercise 2**, verify the following:
+
+- [ ] Your briefing includes all three components:
+  - Calendar meetings
+  - Priority emails
+  - Recent commitments or deadlines
+- [ ] At least one personalization rule has been applied and confirmed by Copilot Cowork.
+- [ ] The **Workspace** panel displays **Daily Briefing** under **Skills & Plugins**.
+
+> [!NOTE]
+> If Copilot Cowork does not find any meetings or emails, your lab account may not contain sufficient sample data. Contact your instructor to verify that the required lab data has been seeded before continuing.
 
 # Exercise 2: Review Meetings and Calendar Priorities
 
@@ -147,14 +234,45 @@ In this exercise you will ask Cowork to look across your entire week —
 not just today — and give you specific recommendations about which
 meetings deserve your attention and which can be shortened or declined.
 
-[TABLE]
+## About the **Calendar Management** Skill
+
+When Copilot Cowork performs calendar-related tasks, it automatically activates the **Calendar Management** skill. You can see the active skill in the **Workspace** panel under **Skills & Plugins**.
+
+Using this skill, Copilot Cowork can:
+
+- Read meeting titles, dates, times, durations, attendees, and agenda details.
+- Detect scheduling conflicts and overlapping meetings.
+- Identify meetings that are missing descriptions, agendas, or attendees.
+- Distinguish between recurring meetings, one-time meetings, focus time, and calendar holds.
+
+> [!IMPORTANT]
+> The **Calendar Management** skill only analyzes your calendar. It **does not** create, modify, reschedule, or delete meetings unless you explicitly instruct Copilot Cowork to do so.
 
 ## Step 5 — Run the calendar review prompt
 
 1.  Continue in the same Cowork conversation (do not start a new task).
     Type or paste the prompt below:
 
-[TABLE]
+## Sample Prompt — Weekly Calendar Review
+
+```text
+Review my calendar for the rest of this week.
+
+- Identify meetings that do not have an agenda or description.
+- Highlight any scheduling conflicts or overlapping meetings.
+- Recommend which meetings I should prioritize, shorten, reschedule, or decline.
+- Explain the reasoning behind each recommendation.
+```
+
+> [!TIP]
+> This prompt helps Copilot Cowork analyze your calendar by asking it to:
+>
+> - **Assess meeting quality** by identifying events with missing agendas or descriptions.
+> - **Detect conflicts** such as overlapping or back-to-back meetings.
+> - **Provide actionable recommendations** for prioritizing, shortening, rescheduling, or declining meetings.
+> - **Explain its reasoning**, making it easier to decide whether to act on the suggestions.
+>
+> Asking for both recommendations and explanations helps you understand *why* Copilot Cowork suggests a particular action rather than simply listing calendar events.
 
 ![](./media/b03f4e837f265da87d7e0804dc6016fc83edd58a.png)
 
@@ -189,13 +307,41 @@ meetings deserve your attention and which can be shortened or declined.
   “Prioritize”, “Defend”, and “Fix or drop”, each with a specific
   rationale for the action. Scroll down to read all three sections.*
 
-[TABLE]
+## Review Your Calendar Analysis
+
+After Copilot Cowork completes the calendar review, verify the following:
+
+- Did it identify the meeting that was intentionally seeded without an agenda or description?
+- Were any overlapping or conflicting meetings detected correctly?
+- Do the recommendations to **prioritize**, **shorten**, **reschedule**, or **decline** meetings make sense based on the meeting purpose and attendees?
+
+> [!NOTE]
+> If the seeded scheduling conflict was **not** detected, continue the conversation with this follow-up prompt:
+
+```text
+Are any of my meetings tomorrow overlapping?
+```
+
+This helps Copilot Cowork perform a more focused analysis of your calendar and can surface conflicts that may have been missed in the initial review.
 
 2.  Read each recommendation. For each one, ask yourself: “Would I
     actually do this?” The goal is to build judgment about when to trust
     AI calendar advice.
 
-[TABLE]
+## Exercise 2 Checkpoint
+
+Before moving to **Exercise 3**, verify the following:
+
+- [ ] The calendar review includes a structured weekly overview.
+- [ ] At least one meeting has been identified as missing an agenda or description.
+- [ ] The **Workspace** panel displays **Calendar Management** under **Skills & Plugins**.
+- [ ] You can explain the purpose of the following recommendation types:
+  - **Prioritize** – High-value meetings that should remain on your calendar.
+  - **Defend** – Focus time or important work blocks that should be protected from interruptions.
+  - **Fix or Drop** – Meetings that should be updated (for example, by adding an agenda or rescheduling) or removed if they no longer provide value.
+
+> [!NOTE]
+> If your results do not match the expected outcomes, verify that your lab account contains the required seeded calendar events before continuing.
 
 # Exercise 3: Summarize Important Emails and Pending Actions
 
@@ -206,13 +352,43 @@ Managing email by opening every message is slow and reactive. In this
 exercise, Cowork reads your last 3 days of email and organizes it into
 three buckets so you can act on only what truly needs your attention.
 
-[TABLE]
+## About **Email Triage** in Copilot Cowork
+
+When Copilot Cowork performs email triage, it uses the **Outlook** connector to analyze your recent messages and organize them into actionable categories:
+
+- **Needs My Reply** – Emails that require your response, approval, or a decision.
+- **Waiting on Others** – Conversations where you've sent a request or question and are awaiting a response.
+- **FYI Only** – Informational emails, newsletters, and notifications that do not require action.
+
+For emails in the **Needs My Reply** category, Copilot Cowork also suggests a **one-line response angle** to help you get started. This is intended as a draft or starting point—not a completed reply.
+
+> [!IMPORTANT]
+> Copilot Cowork **does not** send emails on your behalf unless you explicitly instruct it to do so. It can read, summarize, and draft email responses, but you remain in control of sending them.
 
 ## Step 6 — Run the inbox triage prompt
 
 1.  In the same Cowork conversation, type or paste:
 
-[TABLE]
+## Sample Prompt — Inbox Triage
+
+```text
+Review my inbox from the last three days.
+
+- Group my messages into the following categories:
+  - Needs My Reply
+  - Waiting on Others
+  - FYI Only
+- For each email in **Needs My Reply**, suggest a one-line response angle to help me get started.
+```
+
+> [!TIP]
+> This prompt helps Copilot Cowork organize your inbox by:
+>
+> - **Identifying emails that require your attention** and separating them from informational messages.
+> - **Highlighting pending conversations** where you're waiting for someone else to respond.
+> - **Providing a suggested response angle** for each email that needs your reply, making it quicker to draft responses.
+>
+> By defining both the categories and the desired output, you receive a structured, actionable inbox summary instead of a generic list of emails.
 
 ![](./media/a373950ed641eacd8c8090570109f8065b70cd87.png)
 
@@ -246,7 +422,14 @@ Cowork a correction mid-conversation. Look at the “FYI Only” list — if
 you spot an email that should actually be in “Needs My Reply”, use the
 prompt below to move it:
 
-[TABLE]
+## Sample Follow-up — Correct a Group
+
+```text
+Treat the contract email as **Needs My Reply** instead of its current category.
+```
+
+> [!TIP]
+> Follow-up prompts allow you to refine Copilot Cowork's results without starting over. If an email has been categorized incorrectly, simply specify how it should be classified. Cowork will use your feedback to update the current conversation and produce a more accurate inbox triage.
 
 ![](./media/79b5d7b9e83972130ff662b09434eb5d671a1110.png)
 
@@ -274,7 +457,21 @@ prompt below to move it:
   asking a clarifying question — a sign that it is working
   collaboratively rather than just guessing.*
 
-[TABLE]
+## Exercise 3 Checkpoint
+
+Before moving to **Exercise 4**, verify the following:
+
+- [ ] Your inbox has been organized into the following categories:
+  - **Needs My Reply**
+  - **Waiting on Others**
+  - **FYI Only**
+- [ ] Each email in the **Needs My Reply** category includes a one-line response angle.
+- [ ] You successfully reclassified at least one email using a follow-up prompt.
+- [ ] Copilot Cowork confirmed the updated categorization and applied it as a standing rule for the current conversation.
+- [ ] No emails were sent—Copilot Cowork only analyzed your inbox and suggested responses.
+
+> [!NOTE]
+> Copilot Cowork does not send emails automatically. It summarizes, categorizes, and drafts suggestions, but all sending actions require your explicit approval.
 
 **Exercise 4: Extract Tasks and Follow-up Items**
 
@@ -287,13 +484,50 @@ Buried in email threads and Teams conversations are commitments you made
 confirm. In this exercise, Cowork finds all of them and turns them into
 proper tasks.
 
-[TABLE]
+## About **Task Extraction**
+
+Copilot Cowork extracts tasks by analyzing information from multiple Microsoft 365 sources:
+
+- **Outlook Email** – Scans email subjects and message content for action-oriented phrases such as:
+  - "I'll send..."
+  - "Can you confirm..."
+  - "By Friday..."
+  - "Action required"
+- **Microsoft Teams** – Reviews recent Teams conversations to identify commitments and follow-up actions.
+  > **Note:** In some lab environments, Teams data may be generated by automated workflow bots rather than direct user conversations.
+
+When Copilot Cowork identifies a task with a **clear due date**, it automatically creates the task in **Microsoft To Do**. If the due date is unclear or ambiguous, it asks you to confirm the deadline instead of making assumptions—demonstrating responsible AI behavior.
+
+If **Microsoft To Do** is unavailable in the lab environment, Copilot Cowork maintains a tracked task list within the conversation and asks you to confirm any missing deadlines before finalizing the tasks.
+
+> [!IMPORTANT]
+> Copilot Cowork only creates tasks when it has sufficient information. If a due date or assignment is unclear, it requests clarification rather than guessing.
+
+---
 
 ## Step 8 — Run the task extraction prompt
 
 1.  In the same Cowork conversation, type or paste:
 
-[TABLE]
+## Sample Prompt — Task Extraction
+
+```text
+Review my email and Microsoft Teams messages from this week.
+
+- Extract every task or commitment assigned to me.
+- Create a task for each item that includes a due date when one is specified.
+- List any tasks where the due date is unclear so I can confirm it before the task is created.
+```
+
+> [!TIP]
+> This prompt helps Copilot Cowork:
+>
+> - **Identify action items** from both Outlook email and Microsoft Teams conversations.
+> - **Create tasks automatically** when a clear due date is available.
+> - **Flag ambiguous deadlines** and ask for confirmation instead of making assumptions.
+> - **Consolidate commitments** into a single task list, making it easier to track and complete your work.
+>
+> Asking Cowork to identify unclear deadlines ensures your task list remains accurate and demonstrates responsible AI behavior by avoiding incorrect due dates.
 
 ![](./media/57d651bc22755e7277f6999e1b7344d0d201a037.png)
 
@@ -346,7 +580,17 @@ When Cowork flags ambiguous deadlines, your job is to decide. This is a
 key AI work habit: agents should ask when they don’t know, and humans
 should decide. Type a response to confirm the dates:
 
-[TABLE]
+## Sample Follow-up — Set Due Dates
+
+```text
+Set due dates for tasks 1 and 2 as follows:
+
+- Task 1: Due tomorrow at 5:00 PM.
+- Task 2: Due this Friday at 3:00 PM.
+```
+
+> [!TIP]
+> Use follow-up prompts to update tasks after they have been extracted. Specify the task number or title and provide a clear due date. Copilot Cowork will update the tasks or ask for clarification if the date is ambiguous.
 
 ![](./media/99ba7298a9fa6d0c1f3cbca6cb0b214377fa34fc.png)
 
@@ -414,7 +658,18 @@ should decide. Type a response to confirm the dates:
   Hold”. This confirms the calendar data Cowork was reading throughout
   the lab.*
 
-[TABLE]
+## Exercise 4 Checkpoint
+
+Before moving to the next exercise, verify the following:
+
+- [ ] Task extraction analyzed both **Outlook Email** and **Microsoft Teams**.
+- [ ] At least one task was created with a confirmed due date.
+- [ ] Copilot Cowork identified tasks with ambiguous deadlines and requested clarification instead of guessing.
+- [ ] You confirmed at least one due date using the **date picker** rather than entering the date manually.
+- [ ] You can view the created tasks in **Microsoft To Do** or, if To Do was unavailable, in the **Cowork task list** displayed within the conversation.
+
+> [!NOTE]
+> Depending on your lab environment, Microsoft To Do may not be available. In that case, Copilot Cowork will maintain a task list within the chat while still allowing you to review and confirm due dates.
 
 **Bonus: Draft a Reply Email (Optional)**
 
@@ -422,7 +677,20 @@ If you finished early, continue in the same session to see Cowork draft
 an email reply on your behalf. This is not part of the formal lab but
 demonstrates how Cowork can extend from triage to action.
 
-[TABLE]
+## Bonus Prompt — Draft Priya's Reply
+
+```text
+Draft a professional reply to Priya's email.
+
+- Acknowledge the key points in the email.
+- Answer any questions or requests.
+- Clearly state the next steps and any deadlines.
+- Keep the tone concise, professional, and friendly.
+- Do not send the email—only prepare it as a draft for my review.
+```
+
+> [!TIP]
+> This prompt demonstrates how Copilot Cowork can generate a polished email draft while keeping you in control. Always review the draft for accuracy, completeness, and tone before sending.
 
 ![](./media/cd256af27270f0bc4a9136d85524681ddc1cb6c5.png)
 
@@ -465,7 +733,16 @@ demonstrates how Cowork can extend from triage to action.
   Cowork leaves both as drafts, awaiting your final review and approval
   before sending.*
 
-[TABLE]
+## Key Learning from the Bonus Exercise
+
+In this exercise, notice how Copilot Cowork handled the email drafting process responsibly:
+
+1. **Drafted the email** without sending it automatically.
+2. **Identified missing information**, such as the **§4.3 stance** and **Marcus's email address**, before completing the draft.
+3. **Requested clarification** instead of guessing the recipient's email address or other missing details.
+
+> [!IMPORTANT]
+> Copilot Cowork is designed to support **responsible AI** practices. For actions that are difficult or impossible to undo—such as sending an email—it always asks for your confirmation before proceeding. You remain in control of reviewing, editing, and approving the final action.
 
 ### Final Validation Checklist 
 
@@ -473,18 +750,118 @@ Use this checklist to confirm you have completed all four exercises
 successfully. Tick each item before submitting your lab work to your
 instructor.
 
-[TABLE]
+# Lab 2 — Final Validation
+
+Use this checklist to verify that you have successfully completed all exercises in this lab.
+
+---
+
+## Exercise 1 — Morning Briefing
+
+- [ ] The morning briefing includes:
+  - Calendar meetings with a one-line purpose for each
+  - The three most important unread emails
+  - Commitments and deadlines from the last 48 hours
+- [ ] At least one personalization rule (for example, **manager-first** or **ignore newsletters**) was applied and confirmed.
+- [ ] The **Daily Briefing** skill appeared in the **Workspace** panel under **Skills & Plugins**.
+
+---
+
+## Exercise 2 — Calendar Review
+
+- [ ] A weekly calendar overview was generated, including meeting types and agenda status.
+- [ ] At least one meeting was identified as missing an agenda or description.
+- [ ] The seeded scheduling conflict was detected, or you successfully identified it using the follow-up overlap prompt.
+- [ ] The **Calendar Management** skill appeared in the **Workspace** panel under **Skills & Plugins**.
+
+---
+
+## Exercise 3 — Email Triage
+
+- [ ] Your inbox was organized into the following categories:
+  - **Needs My Reply**
+  - **Waiting on Others**
+  - **FYI Only**
+- [ ] Each email in the **Needs My Reply** category included a one-line response angle.
+- [ ] You successfully moved at least one email to a different category using a follow-up prompt.
+
+---
+
+## Exercise 4 — Task Extraction
+
+- [ ] Tasks were extracted from Outlook email (Microsoft Teams may show no tasks if only automated bot messages were available).
+- [ ] At least one task was created with a confirmed due date.
+- [ ] Copilot Cowork identified ambiguous deadlines and requested confirmation instead of making assumptions.
+- [ ] You verified the created tasks in **Microsoft To Do** or, if To Do was unavailable, in the **Cowork task list** displayed within the conversation.
+
+> [!SUCCESS]
+> **Congratulations!** You have successfully completed **Lab 2 – Executive Productivity Workflows**. You have learned how to use Copilot Cowork to generate a morning briefing, review and optimize your calendar, triage email, extract actionable tasks, and safely refine AI-generated results using follow-up prompts—all while maintaining user control through responsible AI practices.
 
 ### Key Concepts Recap
 
-[TABLE]
+# Key Concepts
 
-### Troubleshooting Common Issues
+| Concept | What it means in this lab |
+|---------|----------------------------|
+| **Cowork** | The Microsoft 365 AI assistant that performs multi-step tasks across Outlook, Teams, and Microsoft To Do within a single conversation. |
+| **Workspace Panel** | The panel in Copilot Cowork that displays the agent's live **Steps** (current actions) and **Skills & Plugins** (active capabilities). |
+| **Skill / Plugin** | A specialized capability that Copilot Cowork activates to perform a specific task. Examples include **Daily Briefing** and **Calendar Management**. |
+| **Daily Briefing Skill** | Used in **Exercise 1** to gather information from your calendar, email, and Teams, then generate a personalized morning briefing. |
+| **Calendar Management Skill** | Used in **Exercise 2** to analyze your Outlook calendar, identify scheduling conflicts and missing agendas, and recommend actions for each meeting. |
+| **Prompt Specificity** | The quality of Copilot Cowork's responses improves when prompts clearly specify **what to include**, **how many items**, and **how the output should be formatted**. |
+| **Follow-up Correction** | A prompt submitted within the same conversation to refine or correct a previous response. Copilot Cowork uses this feedback as a standing rule for the remainder of the session. |
+| **Ambiguous Deadlines** | When Copilot Cowork cannot determine a task's due date with confidence, it asks for confirmation instead of making assumptions. |
+| **Draft vs. Send** | Copilot Cowork creates email drafts for review but never sends emails automatically. Sending an email always requires your explicit approval. |
 
-[TABLE]
+> [!TIP]
+> Throughout this lab, pay attention to the **Workspace** panel. It shows which **Skills & Plugins** Copilot Cowork activates for each task, helping you understand how different capabilities work together to complete multi-step workflows.
 
-[TABLE]
+## Troubleshooting Common Issues
 
-[TABLE]
+## Troubleshooting
 
-[TABLE]
+## Copilot Cowork Found No Emails or Meetings
+
+**Possible Cause**
+
+The lab account may not contain the required sample data, or Outlook permissions have not yet synchronized.
+
+**Resolution**
+
+- Ask your instructor to verify that the lab account has been seeded with the required data.
+- To check Outlook connectivity, run the following prompt:
+
+```text
+Check if you can access my Outlook calendar.
+```
+
+---
+
+## Calendar Conflict Was Not Detected
+
+**Possible Cause**
+
+The conflicting meetings may belong to different calendar categories, or the events were created after the most recent synchronization.
+
+**Resolution**
+
+Run the following follow-up prompt to perform a more targeted search:
+
+```text
+Are any of my meetings tomorrow overlapping?
+```
+
+---
+
+## Microsoft To Do Is Not Available
+
+**Possible Cause**
+
+Some lab environments restrict access to Microsoft To Do. This is a known limitation in certain Microsoft 365 sandbox tenants.
+
+**Resolution**
+
+If Microsoft To Do is unavailable, Copilot Cowork automatically displays a tracked task list within the conversation. Use this task list to complete the exercise and validation checkpoint.
+
+> [!NOTE]
+> These issues are commonly related to the lab environment rather than Copilot Cowork itself. If the problem persists after following the suggested steps, contact your instructor for assistance.

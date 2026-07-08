@@ -289,9 +289,9 @@ Copy the entire block below exactly as written.
 > [!IMPORTANT]
 > Copy the entire prompt below exactly as shown and paste it into a **new Copilot Cowork** session. Do **not** modify the prompt unless instructed by the lab.
 
-```text
+```
 # Microsoft 365 Copilot Cowork Plugin Generation Prompt
-
+ 
 Build a Microsoft 365 Copilot Cowork (Frontier) plugin package called
 **Financial Research** that:
   - Adds seven SEC EDGAR research skills.
@@ -301,59 +301,204 @@ Build a Microsoft 365 Copilot Cowork (Frontier) plugin package called
   - Validates against the Microsoft 365 Unified App Manifest
     (devPreview) schema.
   - Binds to Microsoft 365 Copilot Cowork (not just Microsoft Teams).
-
+ 
 -------------------------------------------------------------------
 Output Path
-
-Place all source files under:
-
-output/microsoft-financial-research-tools/
-
-Place the final ZIP at:
-
-output/microsoft-financial-research-tools.zip
-
+  Place all source files under:
+    output/microsoft-financial-research-tools/
+  Place the final ZIP at:
+    output/microsoft-financial-research-tools.zip
+ 
 -------------------------------------------------------------------
 Package Structure
-
-microsoft-financial-research-tools/
-|-- manifest.json
-|-- color.png
-|-- outline.png
-`-- skills/
-    |-- company-snapshot/SKILL.md
-    |-- financial-trends/SKILL.md
-    |-- peer-comparison/SKILL.md
-    |-- risk-factor-analysis/SKILL.md
-    |-- earnings-deep-dive/SKILL.md
-    |-- executive-research/SKILL.md
-    `-- filing-search/SKILL.md
-
-...
-...
-...
-
-(Continue with the remainder of your prompt exactly as written.)
-
+  microsoft-financial-research-tools/
+  |-- manifest.json
+  |-- color.png    (192 x 192 RGBA, Microsoft blue background)
+  |-- outline.png  (32 x 32 RGBA, transparent bg, white glyph)
+  `-- skills/
+      |-- company-snapshot/SKILL.md
+      |-- financial-trends/SKILL.md
+      |-- peer-comparison/SKILL.md
+      |-- risk-factor-analysis/SKILL.md
+      |-- earnings-deep-dive/SKILL.md
+      |-- executive-research/SKILL.md
+      `-- filing-search/SKILL.md
+ 
+-------------------------------------------------------------------
+manifest.json  (use this canonical structure)
+agentSkills and agentConnectors MUST be top-level properties and
+MUST NOT be nested under copilotAgents.
+ 
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/
+             vDevPreview/MicrosoftTeams.schema.json",
+  "manifestVersion": "devPreview",
+  "version": "1.0.0",
+  "id": "<NEW GUID v4>",
+  "packageName": "com.microsoft.financial-research-tools",
+  "developer": {
+    "name": "Microsoft",
+    "websiteUrl": "https://www.microsoft.com",
+    "privacyUrl": "https://privacy.microsoft.com",
+    "termsOfUseUrl": "https://www.microsoft.com/legal/terms-of-use"
+  },
+  "name": {
+    "short": "Financial Research",
+    "full": "Microsoft Financial Research Tools"
+  },
+  "description": {
+    "short": "SEC EDGAR research skills for public-company analysis.",
+    "full": "Seven skills plus the SEC EDGAR MCP connector for company
+            snapshots, financial trends, peer comparison, risk-factor
+            analysis, earnings deep dives, executive research, and
+            full-text filing search."
+  },
+  "icons": { "color": "color.png", "outline": "outline.png" },
+  "accentColor": "#0078D4",
+  "agentSkills": [
+    { "folder": "./skills/company-snapshot" },
+    { "folder": "./skills/financial-trends" },
+    { "folder": "./skills/peer-comparison" },
+    { "folder": "./skills/risk-factor-analysis" },
+    { "folder": "./skills/earnings-deep-dive" },
+    { "folder": "./skills/executive-research" },
+    { "folder": "./skills/filing-search" }
+  ],
+  "agentConnectors": [
+    {
+      "id": "secedgar",
+      "displayName": "SEC EDGAR",
+      "description": "Public SEC EDGAR data: company search, filings
+        (10-K/10-Q/8-K/DEF 14A), XBRL financials, full-text search.",
+      "toolSource": {
+        "remoteMcpServer": {
+          "mcpServerUrl": "https://secedgar.caseyjhand.com/mcp",
+          "authorization": { "type": "None" }
+        }
+      }
+    }
+  ],
+  "validDomains": [ "secedgar.caseyjhand.com" ]
+}
+ 
+-------------------------------------------------------------------
+Schema Rules
+  - agentSkills and agentConnectors MUST be top-level properties.
+  - Do NOT place them under copilotAgents.
+  - copilotAgents only accepts declarativeAgents.
+  - packageName MUST be included.
+  - manifestVersion MUST be "devPreview".
+  - Use the Microsoft Teams vDevPreview schema URL.
+  - agentConnectors[].toolSource.remoteMcpServer.authorization.type
+    MUST be "None".
+  - validDomains MUST include: secedgar.caseyjhand.com
+  - Generate a new GUID v4 for the id.
+ 
+-------------------------------------------------------------------
+SKILL.md Frontmatter  (every skill must use this)
+---
+name: <kebab-case folder name>
+description: |
+  <2-4 sentence description>
+  Use when the user asks:
+  "<trigger phrase 1>"
+  "<trigger phrase 2>"
+  "<trigger phrase 3>"
+license: MIT
+metadata:
+  author: Microsoft
+  version: "1.0"
+  cowork.category: Finance
+  cowork.icon: <PascalCase Fluent UI icon>
+---
+# <Display Name>
+## What This Skill Does
+## When to Use
+## Workflow
+## Output Format
+ 
+IMPORTANT: cowork.category and cowork.icon MUST be nested under
+metadata.
+ 
+-------------------------------------------------------------------
+Skills, Fluent icons, and trigger phrases
+  company-snapshot   (icon: BuildingBank)
+    - snapshot of <ticker>
+    - overview of <company>
+    - tell me about <company>
+  financial-trends   (icon: ChartMultiple)
+    - 5-year financials for <company>
+    - revenue trend / how has <company> grown
+  peer-comparison    (icon: ScaleFill)
+    - compare A vs B / benchmark <company>
+    - rank companies by revenue
+  risk-factor-analysis (icon: ShieldError)
+    - what are the risks for <company>
+    - risk factors in <company>'s 10-K
+  earnings-deep-dive (icon: DocumentBulletList)
+    - analyze latest earnings / earnings recap
+  executive-research (icon: People)
+    - who runs <company> / leadership of <company>
+    - executive compensation
+  filing-search      (icon: SearchInfo)
+    - find filings mentioning <phrase>
+    - which companies disclosed <topic>
+ 
+Each skill should invoke these MCP tools:
+  - secedgar_company_search
+  - secedgar_get_filing
+  - secedgar_get_financials
+  - secedgar_search_filings
+ 
+-------------------------------------------------------------------
+Icons
+  color.png   : 192 x 192 RGBA, Microsoft Blue (#0078D4),
+                white centered chart/document glyph.
+  outline.png : 32 x 32 RGBA, transparent bg, white outline glyph.
+  Generate icons using Pillow. Do NOT use external image services.
+ 
+-------------------------------------------------------------------
+Packaging
+  Use Python's zipfile module.
+  Place manifest.json at the ROOT of the ZIP.
+  Generate: output/microsoft-financial-research-tools.zip
+ 
+-------------------------------------------------------------------
+Validation Checklist
+  [ ] manifest.json is at the ZIP root
+  [ ] Uses the Microsoft Teams vDevPreview schema
+  [ ] manifestVersion = devPreview
+  [ ] packageName is present
+  [ ] New GUID v4 generated
+  [ ] agentSkills is top-level
+  [ ] agentConnectors is top-level
+  [ ] Every skill folder exists
+  [ ] Every SKILL.md contains valid metadata
+  [ ] metadata.cowork.category is nested correctly
+  [ ] metadata.cowork.icon is nested correctly
+  [ ] color.png is 192 x 192
+  [ ] outline.png is 32 x 32
+  [ ] validDomains contains secedgar.caseyjhand.com
+  [ ] ZIP rebuilt after latest edits
+ 
+-------------------------------------------------------------------
+Upload
+  Upload ONLY through the Microsoft 365 Admin Center:
+    Copilot > Agents > All Agents > Upload Agent
+  Do NOT upload through the Teams Admin Center (lenient validation
+  may register the package as a Teams-only app).
+ 
 -------------------------------------------------------------------
 Success Criteria
+  - microsoft-financial-research-tools.zip exists.
+  - All validation checks pass.
+  - The plugin uploads successfully.
+  - Supported On displays the Copilot icon.
+  - Categories are populated.
+  - SHA256 hash of the ZIP is reported.
+  - A summary of the generated package is provided.
 
-- microsoft-financial-research-tools.zip exists.
-- All validation checks pass.
-- The plugin uploads successfully.
-- Supported On displays the Copilot icon.
-- Categories are populated.
-- SHA256 hash of the ZIP is reported.
-- A summary of the generated package is provided.
 
-NOTE — Public demo MCP endpoint
-
-The connector points at
-https://secedgar.caseyjhand.com/mcp,
-a public community SEC EDGAR MCP server used for this lab.
-It requires no authentication (authorization type is "None").
-Because it is a shared public endpoint, occasional latency or downtime is possible.
-If a query fails, wait a moment and retry.
 ```
 
 > [!NOTE]

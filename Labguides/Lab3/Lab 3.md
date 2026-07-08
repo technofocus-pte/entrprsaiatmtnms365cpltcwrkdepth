@@ -1,6 +1,10 @@
 # Lab 3 – AI-Powered Calendar Optimization - Enterprise AI Automation with Microsoft 365 Copilot Cowork
 
-[TABLE]
+|Item |Details |
+|------|---------|
+| **Estimated time** | 20 minutes |
+| **Apps & services** | Copilot Cowork, Outlook Calendar, Teams |
+| **Objective** | Detect and resolve conflicts, schedule meetings intelligently, and manage an executive-style calendar with protected focus time. |
 
 ## Lab Overview
 

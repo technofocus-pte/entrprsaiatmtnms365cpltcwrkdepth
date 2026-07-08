@@ -1,6 +1,6 @@
 # Lab 4 – Executive Meeting Coordinator
 
-| Estimated Time | 20 minutes |
+|Estimated Time| 20 minutes |
 |----|----|
 | Objective | Automate the full meeting lifecycle: AI-generated preparation, cross-app content collection, and post-meeting follow-up — all grounded in real M365 data. |
 | Skills & Plugins Active | Word (docx skill), Calendar Management, Scheduling, OneDrive/SharePoint connector, Microsoft Graph API, Teams connector, Transcript connector |

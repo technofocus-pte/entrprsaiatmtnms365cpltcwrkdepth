@@ -1,4 +1,9 @@
-[TABLE]
+# Lab 6 – Building Custom Cowork Skills
+
+| Item | Details |
+|------|---------|
+| **Estimated Time** | 30 minutes |
+| **Objective** | Build two custom skills using Copilot Cowork's conversational AI Skill Builder, then publish the skill output to a Microsoft Teams channel. |
 
 # Before You Start: What Is a Custom Skill?
 
@@ -6,7 +11,8 @@ A Custom Skill is a saved workflow Cowork follows whenever you call it
 by name. You describe what you want once, Cowork builds and saves it,
 and from then on one sentence triggers the full workflow automatically.
 
-[TABLE]
+> [!NOTE]
+> The **Skill Builder** is fully conversational. Instead of filling out forms or writing code, simply describe the skill you want to create. Copilot Cowork asks follow-up questions, gathers the required information, and generates the skill automatically.
 
 # Exercise 1: Design Your Skill on Paper First
 
@@ -90,7 +96,8 @@ common reason skills turn out vague and unreliable.
 
 # Exercise 2: Build the Leadership Update Skill
 
-[TABLE]
+> [!IMPORTANT]
+> Earlier versions of this lab described a manual form with fields such as **Name**, **Description**, and **Scope**. The current **Copilot Cowork Skill Builder** no longer uses this form. Instead, the entire skill creation experience is **fully conversational**—Copilot Cowork asks a series of questions, gathers the required information, and generates the skill automatically, as demonstrated in the screenshots throughout this lab.
 
 ## Step 1 — Open the Customize area via the + menu
 
@@ -1126,4 +1133,20 @@ manage it, and understand the Download and Delete management options.
 
 # Validation Checkpoint
 
-[TABLE]
+Verify that you have successfully completed all exercises in this lab before proceeding.
+
+- [ ] You built the **leadership-update** skill using the conversational Skill Builder and observed all three **Workspace** steps (**0/3**, **1/3**, and **3/3**) complete successfully with checkmarks.
+- [ ] You reviewed the **leadership-update** skill guardrails, including all four **When NOT to Use** scenarios, and understand when requests should be routed to a different skill.
+- [ ] You tested the **leadership-update** skill with sample input and confirmed the output included the following four sections:
+  - **Headline**
+  - **Progress**
+  - **Risks & Blockers**
+  - **Asks / Next Steps**
+- [ ] You built the **store-daily-snapshot** skill using the same conversational workflow and confirmed the quality assessment reported **83/100 – Good, Meets the bar to publish**.
+- [ ] You completed both the **Next step** dialog (**Leave it as-is**) and the **Auto-run** dialog after creating the **store-daily-snapshot** skill.
+- [ ] You invoked the **store-daily-snapshot** skill and verified that Copilot Cowork searched across **Files**, **Email**, and **Teams**, then accurately reported that no store data was available instead of generating fabricated results.
+- [ ] You instructed Copilot Cowork to post the generated snapshot to the **Retail > General** Microsoft Teams channel and verified that the message appeared in Teams at **8:35 AM**.
+- [ ] You opened the **store-daily-snapshot** skill details page and located the **Download** and **Delete** actions in the upper-right corner.
+
+> [!SUCCESS]
+> **Congratulations!** You have successfully completed **Lab 6 – Building Custom Cowork Skills**. You learned how to create AI skills through the conversational Skill Builder, validate skill quality, test skill execution, apply guardrails, and publish AI-generated output to Microsoft Teams.

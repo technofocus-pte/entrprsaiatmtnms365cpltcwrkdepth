@@ -865,3 +865,23 @@ If Microsoft To Do is unavailable, Copilot Cowork automatically displays a track
 
 > [!NOTE]
 > These issues are commonly related to the lab environment rather than Copilot Cowork itself. If the problem persists after following the suggested steps, contact your instructor for assistance.
+
+## End of Lab 2
+
+Congratulations! You have completed **Lab 2 – Executive Productivity Workflows**.
+
+In this lab, you used **Microsoft 365 Copilot Cowork** to build an AI-powered morning productivity workflow from a single conversation. You learned how to:
+
+- Generate a personalized morning briefing using your calendar, email, and Teams data.
+- Review and optimize your calendar by identifying conflicts, missing agendas, and scheduling priorities.
+- Organize your inbox into actionable categories and draft response suggestions.
+- Extract tasks and commitments from email and Teams, then create or track them with appropriate due dates.
+
+> [!IMPORTANT]
+> The techniques practiced throughout this lab—**writing specific prompts**, **using follow-up corrections**, and **confirming ambiguous information**—are essential skills for working effectively with AI assistants. These practices help produce more accurate, relevant, and trustworthy results while ensuring you remain in control of important decisions and actions.
+
+---
+
+## Next Steps
+
+In the next lab, you'll build on these foundational skills by exploring more advanced Copilot Cowork capabilities, including multi-step workflows, automation, and enterprise productivity scenarios.

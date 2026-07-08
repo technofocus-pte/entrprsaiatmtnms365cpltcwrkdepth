@@ -2,7 +2,7 @@
 
 | Item | Details |
 |------|---------|
-| **Estimated Time** | 30 minutes |
+| **Estimated Time** | 20 minutes |
 | **Objective** | Build two custom skills using Copilot Cowork's conversational AI Skill Builder, then publish the skill output to a Microsoft Teams channel. |
 
 # Before You Start: What Is a Custom Skill?

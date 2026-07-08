@@ -2,10 +2,6 @@
 
 Estimated Duration: 20 minutes
 
-Level: Intermediate
-
-# **Table of Contents**
-
 ## Lab Overview
 
 Microsoft 365 Copilot can be extended using Copilot Cowork Plugins,

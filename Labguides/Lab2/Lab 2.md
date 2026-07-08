@@ -1,4 +1,4 @@
-**Lab 2: Daily Workday Assistant**
+# Lab 2: Daily Workday Assistant
 
 [TABLE]
 
@@ -8,7 +8,7 @@
 
 [TABLE]
 
-**Exercise 1: Prepare a Personalized Workday Briefing**
+# Exercise 1: Prepare a Personalized Workday Briefing
 
 *Skills used: Daily Briefing — gathers calendar events, email summaries,
 and Teams commitments in one pass.*
@@ -17,7 +17,7 @@ In this exercise you will write your first multi-source prompt, asking
 Cowork to pull together everything you need to start your day in under
 two minutes.
 
-**Step 1 — Sign in and open Cowork**
+## Step 1 — Sign in and open Cowork
 
 1.  Open your browser and navigate to m365.cloud.microsoft (or the
     Microsoft 365 URL your instructor provided). Sign in with your lab
@@ -48,7 +48,7 @@ icons on the left:
   previous sessions (e.g. “Audit Lab Files for Governance Issues”).
   These are for reference — ignore them for now.
 
-**Step 2 — Start a New Task and enter the briefing prompt**
+## Step 2 — Start a New Task and enter the briefing prompt
 
 3.  Click New task in the left navigation panel. The central input box
     becomes active. You are ready to give Cowork your first instruction.
@@ -69,7 +69,7 @@ icons on the left:
 
 [TABLE]
 
-**Step 3 — Watch Cowork work**
+## Step 3 — Watch Cowork work
 
 After you send the prompt, Cowork begins working immediately. Watch what
 happens in the Workspace panel on the right side of the screen.
@@ -110,7 +110,7 @@ briefing in the main chat area:
     weighted incorrectly — you will use this observation in the next
     step.
 
-**Step 4 — Add a personalization rule and re-run**
+## Step 4 — Add a personalization rule and re-run
 
 6.  In the same chat (do NOT click New task — stay in this
     conversation), type a follow-up instruction that adds a
@@ -138,7 +138,7 @@ briefing in the main chat area:
 
 [TABLE]
 
-**Exercise 2: Review Meetings and Calendar Priorities**
+# Exercise 2: Review Meetings and Calendar Priorities
 
 *Skills used: Calendar Management — scans your full week, identifies
 missing agendas, detects conflicts, and recommends actions.*
@@ -149,7 +149,7 @@ meetings deserve your attention and which can be shortened or declined.
 
 [TABLE]
 
-**Step 5 — Run the calendar review prompt**
+## Step 5 — Run the calendar review prompt
 
 1.  Continue in the same Cowork conversation (do not start a new task).
     Type or paste the prompt below:
@@ -197,7 +197,7 @@ meetings deserve your attention and which can be shortened or declined.
 
 [TABLE]
 
-**Exercise 3: Summarize Important Emails and Pending Actions**
+# Exercise 3: Summarize Important Emails and Pending Actions
 
 *Skills used: Email Triage — groups inbox messages into actionable
 categories and drafts reply angles for urgent items.*
@@ -208,7 +208,7 @@ three buckets so you can act on only what truly needs your attention.
 
 [TABLE]
 
-**Step 6 — Run the inbox triage prompt**
+## Step 6 — Run the inbox triage prompt
 
 1.  In the same Cowork conversation, type or paste:
 
@@ -289,7 +289,7 @@ proper tasks.
 
 [TABLE]
 
-**Step 8 — Run the task extraction prompt**
+## Step 8 — Run the task extraction prompt
 
 1.  In the same Cowork conversation, type or paste:
 
@@ -390,7 +390,7 @@ should decide. Type a response to confirm the dates:
   me to set a date on Brief ID 2 too, or draft Priya’s overdue reply
   first?”*
 
-**Step 10 — Review the complete task list**
+## Step 10 — Review the complete task list
 
 ![](./media/ea2be624665dde870324d7ec56dc2b8d24d9bd39.png)
 
@@ -467,7 +467,7 @@ demonstrates how Cowork can extend from triage to action.
 
 [TABLE]
 
-**Final Validation Checklist**
+### Final Validation Checklist 
 
 Use this checklist to confirm you have completed all four exercises
 successfully. Tick each item before submitting your lab work to your
@@ -475,11 +475,11 @@ instructor.
 
 [TABLE]
 
-**Key Concepts Recap**
+### Key Concepts Recap
 
 [TABLE]
 
-**Troubleshooting Common Issues**
+### Troubleshooting Common Issues
 
 [TABLE]
 

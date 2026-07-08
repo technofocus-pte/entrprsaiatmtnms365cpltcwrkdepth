@@ -1,4 +1,4 @@
-# LAB 8: Build and Publish a Custom Microsoft 365 Copilot Cowork Plugin
+# Lab 8: Build and Publish a Custom Microsoft 365 Copilot Cowork Plugin
 
 Estimated Duration: 20 minutes
 

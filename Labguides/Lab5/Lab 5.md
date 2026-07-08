@@ -2,7 +2,7 @@
 
 | Item | Details |
 |------|---------|
-| **Duration** | ~65–75 minutes (including setup) |
+| **Duration** | 30 minutes |
 | **Difficulty** | Intermediate |
 | **Apps** | Copilot Cowork, OneDrive, SharePoint, Excel, Microsoft Teams |
 

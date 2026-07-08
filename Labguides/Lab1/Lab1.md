@@ -1,4 +1,4 @@
-**Lab 1 - Getting Started with Copilot Cowork**
+# Lab 1 - Getting Started with Copilot Cowork
 
 |  |  |
 |----|----|
@@ -24,13 +24,14 @@ a finished result, all in one go.
 
 |                                                         |
 |---------------------------------------------------------|
-| **Exercise 1:** Open Cowork and Explore the Home Screen |
+
+## Exercise 1: Open Cowork and Explore the Home Screen 
 
 The first thing to learn is what the Cowork home screen shows you and
 how each panel is organised. Do not run any tasks yet -- just look and
 navigate.
 
-**Step 1 -- Sign in and switch to the Cowork**
+### Step 1 -- Sign in and switch to the Cowork
 
 1.  **Open your browser and go to**
     [m365.cloud.microsoft](https://m365.cloud.microsoft/) (or your
@@ -56,7 +57,7 @@ navigate.
 - At the very bottom-left is your account name (ODL_User 2270231) and
   the M365 Copilot label with a "..." icon beside it.
 
-**Step 2 -- Identify every element on the home screen**
+### Step 2 -- Identify every element on the home screen
 
 Before clicking anything, read through this map of what you can see.
 Each element is referenced to its screenshot.
@@ -179,16 +180,14 @@ templates.</td>
 > **Note:** The task list on the left is your permanent history. Tasks
 > are never deleted unless you delete them manually. This is what makes
 > Cowork a genuine workflow tool, not just a chat window.
-
-|                                                |
-|------------------------------------------------|
-| **Exercise 2:** Learn the Top Toolbar Controls |
+                                               
+## Exercise 2: Learn the Top Toolbar Controls 
 
 Three icons in the top-right corner and the model selector dropdown are
 used throughout every lab. Take 5 minutes now to click each one so there
 are no surprises later.
 
-**Step 1 -- Explore the model selector (Auto dropdown)**
+### Step 1 -- Explore the model selector (Auto dropdown)
 
 3.  **Click the** "Auto" dropdown at the very top of the right panel
     (above the task bar). A menu appears with four options.
@@ -242,7 +241,7 @@ high-stakes outputs.</td>
 4.  Click anywhere outside the dropdown to close it without changing the
     selection.
 
-**Step 2 -- Check Notifications (bell icon)**
+### Step 2 -- Check Notifications (bell icon)
 
 5.  **Click the** bell icon (top-right). A Notifications panel slides
     out.
@@ -262,7 +261,7 @@ high-stakes outputs.</td>
 
 <img src="./media/image6.png" style="width:7in;height:2in" />
 
-**Step 3 -- Open the three-dot menu (...)**
+### Step 3 -- Open the three-dot menu (...)
 
 8.  **Click the** "..." icon at the far top-right. A small dropdown menu
     appears.
@@ -307,13 +306,14 @@ bookmarking.</td>
 
 |                                      |
 |--------------------------------------|
-| **Exercise 3:** Run Your First Tasks |
+
+## Exercise 3:** Run Your First Tasks 
 
 Now that you know the layout, it is time to actually run something. This
 exercise covers the three ways to give Cowork an instruction: starter
 tiles, typing, and voice.
 
-**Step 1 -- Run a task from a starter tile**
+### Step 1 -- Run a task from a starter tile**
 
 11. **On the home screen, click** "Prep for a meeting" (one of the three
     Try these next tiles).
@@ -390,7 +390,7 @@ The "+" button opens a context menu that lets you tell Cowork exactly
 what to read. This is one of the most important skills in Cowork --
 adding the right context gets you far better results than typing alone.
 
-**Step 1 -- Open the + menu and read the four options**
+### Step 1 -- Open the + menu and read the four options**
 
 22. **Click** New task, then click the "+" button at the left of the
     task bar.
@@ -439,7 +439,7 @@ the task bar.</td>
 </tbody>
 </table>
 
-**Step 2 -- Explore Add work context and all nine search tabs**
+### Step 2 -- Explore Add work context and all nine search tabs**
 
 23. **Click "+" then** "Add work context". A search panel opens over the
     task bar.
@@ -541,7 +541,7 @@ the task bar.</td>
 > a file, a meeting, and a colleague's name all at once. Cowork uses all
 > of them as context together.
 
-**Step 3 -- Upload a file from your computer**
+### Step 3 -- Upload a file from your computer
 
 27. **Click** New task, then click "+" and select "Upload images and
     files".
@@ -564,9 +564,9 @@ the task bar.</td>
 
 |                                                                 |
 |-----------------------------------------------------------------|
-| **Exercise 5:** Search History, Scheduled Tasks, and Task Ideas |
+## Exercise 5: Search History, Scheduled Tasks, and Task Ideas 
 
-**Step 1 -- Find a past task in Search**
+### Step 1 -- Find a past task in Search
 
 29. **Click** Search in the left panel.
 
@@ -589,7 +589,7 @@ the task bar.</td>
 
 <img src="./media/image34.png" style="width:7in;height:3.76042in" />
 
-**Step 2 -- Explore the Scheduled panel**
+### Step 2 -- Explore the Scheduled panel
 
 32. **Click** Scheduled in the left panel.
 
@@ -655,7 +655,7 @@ the task bar.</td>
 
 34. Close or cancel the form.
 
-**Step 3 -- Browse Task Ideas**
+### Step 3 -- Browse Task Ideas
 
 35. **Click** New task to return to the home screen.
 
@@ -704,14 +704,15 @@ the task bar.</td>
 
 |                                            |
 |--------------------------------------------|
-| **Exercise 6:** Explore the Customize Area |
+
+## Exercise 6: Explore the Customize Area 
 
 The Customize area is where Cowork's capabilities can be extended. It
 has two tabs: Plugins (for external services) and Skills (for
 task-specific capabilities). You will work with both in depth in later
 labs.
 
-**Step 1 -- Open Customize and explore Plugins**
+### Step 1 -- Open Customize and explore Plugins
 
 39. **Click** Customize in the left panel (or click "+" in the task bar,
     then Customize).
@@ -751,7 +752,7 @@ labs.
 > description. Plugins connect Cowork to services outside Microsoft 365.
 > You will register a custom plugin in Lab 3.2.
 
-**Step 2 -- Switch to the Skills tab**
+### Step 2 -- Switch to the Skills tab
 
 42. **Click the** Skills tab at the top of the Customize page.
 
@@ -789,7 +790,7 @@ labs.
 
 <img src="./media/image65.png" style="width:7in;height:4.58333in" />
 
-**Step 3 -- Access Customize from the + menu shortcut**
+### Step 3 -- Access Customize from the + menu shortcut
 
 45. **Click** New task to return to the home screen.
 

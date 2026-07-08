@@ -1,6 +1,10 @@
 # Lab 5 – Intelligent File Organizer
 
-[TABLE]
+| Item | Details |
+|------|---------|
+| **Duration** | ~65–75 minutes (including setup) |
+| **Difficulty** | Intermediate |
+| **Apps** | Copilot Cowork, OneDrive, SharePoint, Excel, Microsoft Teams |
 
 By the end of this lab, you will be able to:
 

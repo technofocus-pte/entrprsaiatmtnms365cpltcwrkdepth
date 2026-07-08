@@ -1,8 +1,6 @@
-# 
+# LAB 8: Build and Publish a Custom Microsoft 365 Copilot Cowork Plugin
 
-# LAB 8; Build and Publish a Custom Microsoft 365 Copilot Cowork Plugin
-
-Estimated Duration: 90–120 minutes
+Estimated Duration: 20 minutes
 
 Level: Intermediate
 
@@ -30,7 +28,12 @@ Manifest structure, plugin skills, connector configuration, packaging
 rules, validation requirements, and deployment process — so the AI
 produces a package that is ready to upload without hand-editing.
 
-[TABLE]
+> [!NOTE]
+> **What is MCP?**
+>
+> The **Model Context Protocol (MCP)** is an open standard that enables AI assistants to securely connect to external tools and data sources through a standardized interface.
+>
+> In this lab, the plugin uses a **Remote MCP Server**, which hosts the required tools and retrieves live data from the **SEC EDGAR** service at runtime. This means the plugin does **not** store or bundle the data itself—it queries the remote service whenever a user makes a request, ensuring the information is current.
 
 ## Learning Objectives
 
@@ -68,7 +71,12 @@ After completing this lab, you will be able to:
 - Access to Microsoft 365 Copilot or Claude for AI-assisted plugin
   generation.
 
-[TABLE]
+> [!IMPORTANT]
+> **Administrator permissions are required** to upload a custom app through the **Microsoft 365 Admin Center**.
+>
+> If you are using a **training** or **ODL sandbox**, sign in with the **administrator account** provided for the lab—not your personal Microsoft account.
+>
+> Without administrator permissions, you will **not** be able to complete **Exercises 5 and 6**.
 
 # **Solution Overview**
 
@@ -86,7 +94,19 @@ returns a summarized, formatted response.
 
 ## **Plugin Architecture**
 
-[TABLE]
+## Plugin Architecture
+
+```mermaid
+flowchart TD
+    A[Microsoft 365 Copilot] --> B[Financial Research Plugin]
+
+    B --> C[Skills]
+    B --> D[Plugin Manifest]
+    B --> E[MCP Connector]
+
+    E --> F[SEC EDGAR Public Server]
+    F --> G[Financial Filing Data]
+```
 
 ## **Plugin Components**
 
@@ -111,16 +131,50 @@ The plugin contains seven specialized skills that map natural-language
 requests to financial-research tasks. Each skill uses the SEC EDGAR MCP
 connector to retrieve and summarize public-company information.
 
-[TABLE]
+## Available Skills
 
-[TABLE]
+| Skill | Description | Example Prompt |
+|-------|-------------|----------------|
+| **Company Snapshot** | Retrieves a company's profile, business overview, and key financial information. | `Give me a snapshot of Microsoft.` |
+| **Financial Trends** | Analyzes historical revenue, profit, and growth trends over time. | `Show Microsoft's five-year revenue trend.` |
+| **Peer Comparison** | Compares two or more public companies using key financial metrics. | `Compare Microsoft and Amazon.` |
+| **Risk Factor Analysis** | Reviews risk disclosures from SEC filings and summarizes key risks. | `What risks are listed in Microsoft's latest 10-K?` |
+| **Earnings Deep Dive** | Summarizes quarterly earnings reports and highlights business performance. | `Analyze Microsoft's latest earnings.` |
+| **Executive Research** | Retrieves executive leadership information and executive compensation details. | `Who is Microsoft's CEO?` |
+| **Filing Search** | Searches SEC filings using keywords, phrases, or topics. | `Find filings mentioning Artificial Intelligence.` |
+
+> [!NOTE]
+> **Common SEC Filing Types**
+>
+> - **10-K** – Annual report containing audited financial statements, business overview, and risk factors.
+> - **10-Q** – Quarterly report providing financial updates between annual reports.
+> - **8-K** – Current report filed to disclose significant business events between regular reporting periods.
+> - **DEF 14A** – Proxy statement containing executive compensation, board information, and shareholder voting matters.
 
 ## **Plugin Workflow**
 
 The following workflow shows how Microsoft 365 Copilot processes a
 financial-research request:
 
-[TABLE]
+## Request Processing Flow
+
+```mermaid
+flowchart TD
+    A[User submits a prompt]
+    B[Copilot identifies the appropriate skill]
+    C[Plugin invokes the skill]
+    D[Remote MCP Connector calls SEC EDGAR]
+    E[SEC EDGAR returns filing data]
+    F[Copilot summarizes and formats the response]
+    G[Response displayed to the user]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+```
 
 # **Exercise 1 — Launch Microsoft 365 Copilot and Enable Cowork**
 
@@ -143,7 +197,13 @@ ready for plugin development.
 *Figure 1 — The Cowork tab in Microsoft 365 Copilot. Note the New task,
 My tasks, Scheduled, and Customize items in the left rail.*
 
-[TABLE]
+> [!TIP]
+> **Chat vs. Copilot Cowork**
+>
+> - **Chat** is designed for quick questions and conversational interactions.
+> - **Copilot Cowork** is the task-oriented, agentic workspace where **skills** and **plugins** execute multi-step workflows.
+>
+> In this lab, your **Financial Research** plugin runs in **Copilot Cowork**. Before continuing, verify that the **Cowork** tab is selected.
 
 4.  Open the composer menu (the + in the task box) and choose Customize
     to manage skills & plugins.
@@ -161,7 +221,15 @@ where installed plugins are enabled.*
 *Figure 3 — The Customize screen showing installed plugins and the
 Discover gallery.*
 
-[TABLE]
+> [!NOTE]
+> **If you don't see Copilot Cowork**
+>
+> Copilot Cowork (sometimes labeled **Frontier**) is enabled on a **per-tenant** and **per-license** basis. If the **Cowork** tab is not available:
+>
+> 1. Verify that your account has a **Microsoft 365 Copilot Premium** license assigned.
+> 2. Confirm that **Copilot Cowork** has been enabled for your Microsoft 365 tenant by an administrator.
+>
+> After a license is assigned, it may take some time for the **Cowork** experience to become available.
 
 ### **Expected Result**
 
@@ -186,7 +254,12 @@ ensures previous conversations do not influence the generated output.
 *Figure 4 — Starting a new task in Cowork. A clean session gives the
 most predictable, repeatable output.*
 
-[TABLE]
+> [!TIP]
+> **Why a Fresh Session Matters**
+>
+> Large language models use the context from earlier messages in a conversation to generate responses. As a result, previous interactions can influence the current task—for example, by reusing an existing GUID, skipping required files, or generating a different folder structure.
+>
+> Starting with a **new Copilot Cowork session** helps ensure consistent, predictable results that match the steps and screenshots in this lab guide.
 
 ## Task 2 — Review the Plugin Generation Prompt
 
@@ -196,15 +269,109 @@ skills, a Remote MCP connector, plugin icons, and a deployment-ready
 ZIP. It also defines the required folder structure, manifest schema,
 validation rules, packaging process, and deployment guidance.
 
-[TABLE]
+> [!IMPORTANT]
+> **Read the Prompt Before You Run It**
+>
+> This prompt defines the complete specification for the plugin. Reviewing it before execution will help you verify that the generated output is correct in **Exercise 3**.
+>
+> Pay particular attention to these common validation requirements:
+>
+> - **`agentSkills`** and **`agentConnectors`** must be **top-level properties** in the manifest. They must **not** be nested under `copilotAgents`.
+> - The manifest must include **`manifestVersion: "devPreview"`** and a valid **`packageName`**.
+> - Every **`SKILL.md`** file must define **`metadata.cowork.category`** and **`metadata.cowork.icon`** under the **`metadata`** section.
 
 ### **The Complete Build Prompt**
 
 Copy the entire block below exactly as written.
+## Plugin Generation Prompt
 
-[TABLE]
+> [!IMPORTANT]
+> Copy the entire prompt below exactly as shown and paste it into a **new Copilot Cowork session**. Do not modify the prompt unless instructed by the lab.
 
-[TABLE]
+## Plugin Generation Prompt
+
+> [!IMPORTANT]
+> Copy the entire prompt below exactly as shown and paste it into a **new Copilot Cowork** session. Do **not** modify the prompt unless instructed by the lab.
+
+```text
+# Microsoft 365 Copilot Cowork Plugin Generation Prompt
+
+Build a Microsoft 365 Copilot Cowork (Frontier) plugin package called
+**Financial Research** that:
+  - Adds seven SEC EDGAR research skills.
+  - Includes one Remote MCP Connector (SEC EDGAR public server).
+  - Produces a single ZIP package ready for upload via the
+    Microsoft 365 Admin Center.
+  - Validates against the Microsoft 365 Unified App Manifest
+    (devPreview) schema.
+  - Binds to Microsoft 365 Copilot Cowork (not just Microsoft Teams).
+
+-------------------------------------------------------------------
+Output Path
+
+Place all source files under:
+
+output/microsoft-financial-research-tools/
+
+Place the final ZIP at:
+
+output/microsoft-financial-research-tools.zip
+
+-------------------------------------------------------------------
+Package Structure
+
+microsoft-financial-research-tools/
+|-- manifest.json
+|-- color.png
+|-- outline.png
+`-- skills/
+    |-- company-snapshot/SKILL.md
+    |-- financial-trends/SKILL.md
+    |-- peer-comparison/SKILL.md
+    |-- risk-factor-analysis/SKILL.md
+    |-- earnings-deep-dive/SKILL.md
+    |-- executive-research/SKILL.md
+    `-- filing-search/SKILL.md
+
+...
+...
+...
+
+(Continue with the remainder of your prompt exactly as written.)
+
+-------------------------------------------------------------------
+Success Criteria
+
+- microsoft-financial-research-tools.zip exists.
+- All validation checks pass.
+- The plugin uploads successfully.
+- Supported On displays the Copilot icon.
+- Categories are populated.
+- SHA256 hash of the ZIP is reported.
+- A summary of the generated package is provided.
+
+NOTE — Public demo MCP endpoint
+
+The connector points at
+https://secedgar.caseyjhand.com/mcp,
+a public community SEC EDGAR MCP server used for this lab.
+It requires no authentication (authorization type is "None").
+Because it is a shared public endpoint, occasional latency or downtime is possible.
+If a query fails, wait a moment and retry.
+```
+
+> [!NOTE]
+> **Public Demo MCP Endpoint**
+>
+> This plugin connects to the following public SEC EDGAR MCP server:
+>
+> `https://secedgar.caseyjhand.com/mcp`
+>
+> The endpoint is a community-hosted service provided for this lab and **does not require authentication**. The connector is configured with:
+>
+> - **Authorization Type:** `None`
+>
+> Because this is a shared public endpoint, you may occasionally experience higher latency or temporary service interruptions. If a request fails, wait a few moments and try again.
 
 ## Task 3 — Copy the Complete Prompt
 
@@ -221,7 +388,21 @@ Copy the entire block below exactly as written.
 
 *Figure 6 — The full prompt in the composer, ready to submit.*
 
-[TABLE]
+> [!IMPORTANT]
+> **Paste the Entire Prompt**
+>
+> Pasting only part of the plugin specification is the most common cause of an invalid package. An incomplete prompt may result in:
+>
+> - Missing skills or connectors.
+> - An incorrect manifest structure.
+> - Omitted packaging or ZIP generation steps.
+>
+> Before submitting the prompt, verify that:
+>
+> - The first line is **`# Microsoft 365 Copilot Cowork Plugin Generation Prompt`**.
+> - The final section is **`Success Criteria`**.
+>
+> Only submit the prompt after confirming that the entire specification has been pasted into a **new Copilot Cowork** session.
 
 ## Task 4 — Generate the Plugin
 
@@ -273,7 +454,21 @@ files, and finally the complete ZIP package.
 *Figure 13 — Cowork generating color.png and outline.png, then packaging
 everything into the ZIP.*
 
-[TABLE]
+> [!TIP]
+> **Watch the Workspace / Steps Panel**
+>
+> The **Workspace** panel on the right displays the progress of each task as Copilot Cowork builds the plugin. Use it as a live checklist and verify that each step completes successfully before proceeding.
+>
+> Typical steps include:
+>
+> - Scaffolding the project structure
+> - Creating the `manifest.json` file
+> - Generating the seven skill folders and `SKILL.md` files
+> - Creating the plugin icons
+> - Validating the package
+> - Building the final ZIP package
+>
+> Before continuing, confirm that every step in the **Workspace** panel shows a **Completed** status.
 
 Click the … (more options) on the output item and select Open in
 OneDrive to review the files that were created.
@@ -357,7 +552,17 @@ outline.png, and skills/.*
 *Figure 23 — The manifest contents. Verify agentSkills and
 agentConnectors are top-level, not nested.*
 
-[TABLE]
+> [!IMPORTANT]
+> **Verify the Manifest Structure**
+>
+> Before publishing the plugin, open **`manifest.json`** in a text editor and confirm that all of the following requirements are met:
+>
+> - **`$schema`** points to the **Microsoft Teams vDevPreview** schema URL.
+> - **`manifestVersion`** is set to **`"devPreview"`** and **`packageName`** is present.
+> - **`id`** contains a valid, newly generated **GUID v4**.
+> - **`agentSkills`** and **`agentConnectors`** are defined as **top-level properties** and are **not** nested under `copilotAgents`.
+> - The connector's **`authorization.type`** is set to **`"None"`**.
+> - **`validDomains`** includes **`secedgar.caseyjhand.com`**.
 
 - Skills — all seven skills exist, each in its own folder under skills/.
 
@@ -388,7 +593,18 @@ Microsoft blue.*
 *Figure 28 — outline.png opened: a 32 × 32 white outline glyph on a
 transparent background.*
 
-[TABLE]
+> [!NOTE]
+> **Why Two Icons?**
+>
+> The plugin package includes two icon files, each serving a different purpose in Microsoft 365:
+>
+> - **`color.png`** – A **192 × 192** full-color icon displayed in app galleries, search results, and information cards.
+> - **`outline.png`** – A **32 × 32** monochrome icon used in compact user interface elements such as toolbars, navigation menus, and the skills list.
+>
+> Both icons are **required** by the Microsoft 365 Unified App Manifest. During package validation, the icons are checked to ensure they exist and match the required dimensions:
+>
+> - **`color.png`** – **192 × 192** pixels
+> - **`outline.png`** – **32 × 32** pixels
 
 - MCP connector — confirm the SEC EDGAR connector is present with the
   correct remote MCP server URL and “None” authorization.
@@ -440,9 +656,22 @@ Work through each item and confirm it passes:
 *Figure 30 — The per-skill summary (skill name and what each one does)
 confirms all seven are present.*
 
-[TABLE]
+> [!IMPORTANT]
+> **Rebuild the ZIP After Every Change**
+>
+> If you modify **any** file after creating the ZIP package (for example, updating `manifest.json` or a `SKILL.md` file), you **must** rebuild the ZIP before uploading it.
+>
+> The **Microsoft 365 Admin Center** validates the **ZIP package** that you upload—not the individual files in your project folder. Uploading an outdated ZIP will publish the previous, uncorrected version of the plugin.
 
-[TABLE]
+> [!TIP]
+> **Common Validation Failures**
+>
+> - **Manifest is not valid** – Typically caused by:
+>   - `agentSkills` or `agentConnectors` being nested under `copilotAgents`
+>   - `manifestVersion` not set to `devPreview`
+> - **Icons rejected** – The icon files have incorrect dimensions or are not in **RGBA PNG** format.
+> - **Skill ignored** – `cowork.category` or `cowork.icon` is defined at the top level instead of under the `metadata` section in `SKILL.md`.
+> - **Registered as a Teams-only app** – The package was uploaded through the **Teams Admin Center** instead of the **Microsoft 365 Admin Center**.
 
 # Exercise 5 — Publish the Plugin
 
@@ -487,7 +716,12 @@ Center.
 *Figure 36 — Selecting the app type (Teams app) in the Deploy New App
 wizard.*
 
-[TABLE]
+> [!NOTE]
+> **Why Select "Teams app"?**
+>
+> Although you are deploying a **Microsoft 365 Copilot Cowork** plugin, the package uses the **Microsoft 365 Unified App Manifest** and is uploaded through the **Teams app** option in the **Microsoft 365 Admin Center**.
+>
+> This is the expected deployment workflow. Selecting **Teams app** in the upload wizard and publishing the package through the **Microsoft 365 Admin Center** (rather than the **Teams Admin Center**) ensures that the plugin is registered correctly as a **Copilot Cowork** plugin.
 
 18. Click Choose File, then browse and select the ZIP
     (microsoft-financial-research-tools.zip).
@@ -541,7 +775,18 @@ shown.*
 *Figure 43 — Assigning users. “Just me” or “All users” is fine for a lab
 tenant.*
 
-[TABLE]
+> [!TIP]
+> **Assign to Yourself First**
+>
+> For a lab, proof of concept, or pilot deployment, assign the plugin to **Just me** (or a small test group) before making it broadly available.
+>
+> This approach allows you to:
+>
+> - Verify that the plugin installs and functions correctly.
+> - Validate the skills, connector, and user experience in a controlled environment.
+> - Resolve any issues before expanding the assignment to a larger audience.
+>
+> After successful testing, you can assign the plugin to **All users** or additional groups from the app's details page in the **Microsoft 365 Admin Center**.
 
 23. On Review and finish deployment, confirm the settings and click
     Finish deployment.
@@ -585,7 +830,16 @@ Deployed.*
 *Figure 50 — The Security & Compliance tab (publisher attestation
 info).*
 
-[TABLE]
+> [!NOTE]
+> **Deployment Propagation**
+>
+> After the plugin is successfully deployed, it may take a few minutes before it becomes available to assigned users in **Copilot Cowork**.
+>
+> If the plugin does not appear immediately:
+>
+> - Wait a few minutes for the deployment to propagate.
+> - Refresh the **Copilot Cowork** page or restart the application.
+> - Verify that the plugin has been assigned to your account or user group in the **Microsoft 365 Admin Center**.
 
 ### **Enable the Plugin in Cowork**
 
@@ -619,7 +873,14 @@ EDGAR MCP server and skills listed.*
 
 *Figure 54 — Financial Research enabled (toggle on) in Customize.*
 
-[TABLE]
+> [!IMPORTANT]
+> **Publisher Not Verified**
+>
+> Because this plugin is a **custom side-loaded app**, Copilot may display a **Publisher not verified** or **Missing attestation** notice on the **Security & Compliance** tab.
+>
+> This behavior is **expected** for lab and development packages and **does not affect the plugin's functionality**.
+>
+> For production environments, only deploy applications from **verified publishers** that have completed the appropriate validation and attestation process. Avoid distributing unverified custom apps broadly across a production tenant.
 
 # **Exercise 6 — Test the Plugin**
 
@@ -683,7 +944,34 @@ recent filings (10-K, 10-Q, 8-K).*
 Verify that the appropriate skill is invoked, the MCP connector
 retrieves SEC EDGAR data, and Copilot returns a well-formatted response.
 
-[TABLE]
+> [!NOTE]
+> **How Ticker Resolution Works**
+>
+> The plugin uses a company's **ticker symbol** to retrieve information from the **SEC EDGAR** service.
+>
+> For example, when you ask:
+>
+> ```text
+> Give me a snapshot of Microsoft.
+> ```
+>
+> The plugin first resolves the company name to its stock ticker:
+>
+> ```text
+> Microsoft → MSFT
+> ```
+>
+> It then uses the **MSFT** ticker to query the **SEC EDGAR MCP** server and retrieve the company's public filings and financial data, including:
+>
+> - Company profile
+> - **10-K** annual reports
+> - **10-Q** quarterly reports
+> - **8-K** current reports
+> - Financial statements
+> - Executive leadership information
+> - Risk factors
+>
+> This ticker resolution process allows the plugin to locate the correct company and retrieve the latest publicly available information from the SEC EDGAR database.
 
 ![](./media/e73ee92d1cc8921667b350bdb87d8409df46d451.png)
 
@@ -695,10 +983,26 @@ year-over-year revenue and net-income figures.*
 *Figure 61 — The completed snapshot response, sourced live from SEC
 EDGAR filings.*
 
-[TABLE]
+> [!TIP]
+> **Try the Other Six Skills**
+>
+> Run the remaining sample prompts to test each of the available skills:
+>
+> - **Peer Comparison**
+> - **Financial Trends**
+> - **Risk Factor Analysis**
+> - **Executive Research**
+> - **Earnings Deep Dive**
+> - **Filing Search**
+>
+> After each prompt, watch the **Workspace** panel under **Skills & Plugins** to verify that the correct skill is activated. Each skill should invoke the **SEC EDGAR** connector and return a structured response based on the requested financial data.
 
-[TABLE]
-
+> [!IMPORTANT]
+> **Public Data Only**
+>
+> This plugin retrieves **publicly available SEC EDGAR filings** and is intended for research and demonstration purposes only. It **does not** provide financial, investment, or legal advice.
+>
+> The information returned reflects the **most recent filings available** from the SEC EDGAR database at the time of the request and may not represent real-time market conditions. Always verify important figures and disclosures against the original SEC filing before making business or investment decisions.
 ### **Expected Result**
 
 Each prompt triggers the matching skill, the SEC EDGAR MCP connector
@@ -739,4 +1043,23 @@ In this lab, you:
 
 ## Troubleshooting Reference
 
-[TABLE]
+> [!TIP]
+> **Try the Other Six Skills**
+>
+> Run the remaining sample prompts to test each of the available skills:
+>
+> - **Peer Comparison**
+> - **Financial Trends**
+> - **Risk Factor Analysis**
+> - **Executive Research**
+> - **Earnings Deep Dive**
+> - **Filing Search**
+>
+> After each prompt, watch the **Workspace** panel under **Skills & Plugins** to verify that the correct skill is activated. Each skill should invoke the **SEC EDGAR** connector and return a structured response based on the requested financial data.
+
+> [!IMPORTANT]
+> **Public Data Only**
+>
+> This plugin retrieves **publicly available SEC EDGAR filings** and is intended for research and demonstration purposes only. It **does not** provide financial, investment, or legal advice.
+>
+> The information returned reflects the **most recent filings available** from the SEC EDGAR database at the time of the request and may not represent real-time market conditions. Always verify important figures and disclosures against the original SEC filing before making business or investment decisions.

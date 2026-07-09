@@ -381,10 +381,8 @@ you prefer not to use voice, you may type the instruction instead.
 > **Note:** The microphone button toggles between active (listening) and
 > paused. If your speech is not transcribing, click the microphone icon
 > once more to re-activate it.
-
-|                                                     |
-|-----------------------------------------------------|
-| Exercise 4: Use the + Menu to Add Context to a Task |
+                                                
+## Exercise 4: Use the + Menu to Add Context to a Task 
 
 The "+" button opens a context menu that lets you tell Cowork exactly
 what to read. This is one of the most important skills in Cowork --
@@ -562,8 +560,7 @@ the task bar.</td>
   The dialog has a file name field, All files filter, Open and Cancel
   buttons, and an "Upload from mobile" button.
 
-|                                                                 |
-|-----------------------------------------------------------------|
+
 ## Exercise 5: Search History, Scheduled Tasks, and Task Ideas 
 
 ### Step 1 -- Find a past task in Search

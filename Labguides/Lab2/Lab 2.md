@@ -818,8 +818,6 @@ Use this checklist to verify that you have successfully completed all exercises 
 
 ## Troubleshooting Common Issues
 
-## Troubleshooting
-
 ## Copilot Cowork Found No Emails or Meetings
 
 **Possible Cause**

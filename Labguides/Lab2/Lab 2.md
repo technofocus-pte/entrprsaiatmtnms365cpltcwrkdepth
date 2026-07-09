@@ -457,7 +457,7 @@ Treat the contract email as **Needs My Reply** instead of its current category.
   asking a clarifying question — a sign that it is working
   collaboratively rather than just guessing.*
 
-## Exercise 3 Checkpoint
+**Exercise 3 Checkpoint**
 
 Before moving to **Exercise 4**, verify the following:
 
@@ -473,7 +473,7 @@ Before moving to **Exercise 4**, verify the following:
 > [!NOTE]
 > Copilot Cowork does not send emails automatically. It summarizes, categorizes, and drafts suggestions, but all sending actions require your explicit approval.
 
-**Exercise 4: Extract Tasks and Follow-up Items**
+## Exercise 4: Extract Tasks and Follow-up Items
 
 *Skills used: Task Extraction — reads email and Teams threads,
 identifies commitments assigned to you, creates To Do tasks with due
@@ -671,13 +671,13 @@ Before moving to the next exercise, verify the following:
 > [!NOTE]
 > Depending on your lab environment, Microsoft To Do may not be available. In that case, Copilot Cowork will maintain a task list within the chat while still allowing you to review and confirm due dates.
 
-**Bonus: Draft a Reply Email (Optional)**
+## Bonus: Draft a Reply Email (Optional)
 
 If you finished early, continue in the same session to see Cowork draft
 an email reply on your behalf. This is not part of the formal lab but
 demonstrates how Cowork can extend from triage to action.
 
-## Bonus Prompt — Draft Priya's Reply
+### Bonus Prompt — Draft Priya's Reply
 
 ```text
 Draft a professional reply to Priya's email.

@@ -22,8 +22,6 @@ a finished result, all in one go.
 | Great for quick lookups  |  **Great for complex, repeatable workflows**   |
 |     No task history      |     **All tasks are saved and searchable**     |
 
-|                                                         |
-|---------------------------------------------------------|
 
 ## Exercise 1: Open Cowork and Explore the Home Screen 
 
@@ -304,9 +302,6 @@ bookmarking.</td>
 
 10. Close the menu by clicking anywhere outside it.
 
-|                                      |
-|--------------------------------------|
-
 ## Exercise 3: Run Your First Tasks 
 
 Now that you know the layout, it is time to actually run something. This
@@ -346,7 +341,7 @@ tiles, typing, and voice.
 
 <img src="./media/image13.png" style="width:7in;height:4.66667in" />
 
-**Step 2 -- Start a task by typing from scratch**
+### Step 2 -- Start a task by typing from scratch
 
 15. **Click** New task in the left panel to return to the home screen.
 
@@ -361,7 +356,7 @@ respond to.
 
 17. **Press Enter to run the prompt.**
 
-**Step 3 -- Try voice input**
+### Step 3 -- Try voice input
 
 18. **Click** New task to return to the home screen.
 
@@ -388,7 +383,7 @@ The "+" button opens a context menu that lets you tell Cowork exactly
 what to read. This is one of the most important skills in Cowork --
 adding the right context gets you far better results than typing alone.
 
-### Step 1 -- Open the + menu and read the four options**
+### Step 1 -- Open the + menu and read the four options
 
 22. **Click** New task, then click the "+" button at the left of the
     task bar.
@@ -437,7 +432,7 @@ the task bar.</td>
 </tbody>
 </table>
 
-### Step 2 -- Explore Add work context and all nine search tabs**
+### Step 2 -- Explore Add work context and all nine search tabs
 
 23. **Click "+" then** "Add work context". A search panel opens over the
     task bar.

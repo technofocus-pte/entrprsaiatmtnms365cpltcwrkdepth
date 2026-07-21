@@ -307,7 +307,7 @@ bookmarking.</td>
 |                                      |
 |--------------------------------------|
 
-## Exercise 3:** Run Your First Tasks 
+## Exercise 3: Run Your First Tasks 
 
 Now that you know the layout, it is time to actually run something. This
 exercise covers the three ways to give Cowork an instruction: starter

@@ -17,14 +17,14 @@ OneDrive/SharePoint, and Teams in parallel.
 style="width:7in;height:4.63542in" />
 
 2.  In the prompt bar, type the Exercise 1 prompt and press Enter:
-
+```
 "Prepare me for my next meeting. Build a one-page prep brief containing:
 attendee list with my last interaction with each, the stated purpose,
 related email threads and files, open action items from previous related
 meetings, and 3 questions I should ask. Save it as a Word document in my
 'Lab Files' folder named 'Prep –june 19, 2026 –project planning
 workshop'."​
-
+```
 **Screenshot 1 — Prompt submitted — Cowork begins processing**
 
 <img src="./media/image1.png" style="width:5.9375in;height:3.4375in" />
@@ -214,12 +214,11 @@ last interaction, Related Emails shows the invitation and bounce notice,
 Related Files honestly reports “No related files found”, and the
 Q1/Q2/Q3 table is present.
 
-7.  Send the refinement prompt: “Add a Risks section listing anything in
-    the email threads that sounds like a blocker.”
-
-**Screenshot 21 — Refinement prompt — “Add a Risks section” typed and
-ready to send**
-
+7.  Send the refinement prompt:
+```
+“Add a Risks section listing anything in the email threads that sounds like a blocker.”
+```
+**Screenshot 21 — Refinement prompt "Add a Risks section” typed and ready to send**
 <img src="./media/image21.png" style="width:5.9375in;height:3.4375in" />
 
 **What We Did** The refinement tests whether Cowork updates the existing
@@ -252,7 +251,10 @@ the invite bounce. Cowork confirms exactly one blocker found and that
 the document still fits on one page. Updated in place — not duplicated.
 ✓
 
-8.  Send: “move updated word file to lab files folder”
+8.  Send:
+```
+move updated word file to lab files folder
+```
 
 **Screenshot 25 — “move updated word file to lab files folder” — typed
 and sent**
@@ -354,12 +356,10 @@ Goal: Gather all content related to the Project Sync meeting and
 organise it into a “Meeting Pack” folder in OneDrive with a hyperlinked
 index document.
 
-11. Send the Exercise 2 prompt: "For the Project Sync meeting, gather
-    everything related: files in OneDrive/SharePoint, email threads,
-    Teams messages, and any open tasks. Organise them into a single
-    'Meeting Pack' folder in OneDrive and give me an index document
-    linking to each item with a one-line description."
-
+11. Send the Exercise 2 prompt:
+```
+For the Project Sync meeting, gather everything related: files in OneDrive/SharePoint, email threads, Teams messages, and any open tasks. Organise them into a single 'Meeting Pack' folder in OneDrive and give me an index document linking to each item with a one-line description."
+```
 **Screenshot 35 — Exercise 2 prompt — typed and ready to send**
 
 <img src="./media/image35.png" style="width:5.9375in;height:3.4375in" />
@@ -475,13 +475,10 @@ Goal: Generate a meeting summary, action items, follow-up email, and
 tasks from a transcript. Demonstrates AI grounding — refusing to
 fabricate content without source material.
 
-16. Send the Exercise 3 prompt: "From this meeting's
-    transcript/notes: (1) write a crisp summary with decisions made, (2)
-    extract action items with owner and due date, (3) draft a follow-up
-    email to all attendees, and (4) create tasks for the items assigned
-    to me. Show me everything for review before creating or sending
-    anything."
-
+16. Send the Exercise 3 prompt:
+```
+"From this meeting's transcript/notes: (1) write a crisp summary with decisions made, (2) extract action items with owner and due date, (3) draft a follow-up email to all attendees, and (4) create tasks for the items assigned to me. Show me everything for review before creating or sending anything."
+```
 **Screenshot 46 — Exercise 3 prompt — typed and ready to send**
 
 <img src="./media/image46.png" style="width:5.9375in;height:3.4375in" />

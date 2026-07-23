@@ -136,12 +136,12 @@ Chat only answers questions.
     — Cowork will automatically use your actual calendar dates.
 
 **Sample prompt**
-
+```
 Scan my calendar for the next 5 business days. List every conflict or
 back-to-back run of 3+ meetings. For each conflict, propose a
 resolution: which meeting to move, the best alternative slot for all
 attendees, and a polite reschedule message.
-
+```
 6.  Click the blue arrow button on the right side of the prompt bar (or
     press Enter) to submit the prompt.
 
@@ -277,11 +277,12 @@ Cowork capabilities used in this exercise:
     lab partner or a colleague in your tenant.
 
 **Sample prompt**
-
+```
 Schedule a 45-minute "Project Sync" with \<colleague\> next week.
 Constraints: not Monday, not within 30 minutes of either of our existing
 meetings, prefer mornings, and add a Teams link and a draft agenda with
 3 talking points based on our recent email thread about the project.
+```
 
 - Submit the prompt using the blue send button or Enter.
 
@@ -387,7 +388,7 @@ can see the confirmation that the calendar event was created in Outlook.
     Click "+ New task" and enter the following prompt:
 
 **Sample prompt**
-
+```
 Review my calendar and the calendar of my account lead. Schedule a
 4-hour Project Planning Workshop tomorrow at a time when we are both
 completely free. Constraints: - Must be tomorrow. - Must be a continuous
@@ -395,7 +396,7 @@ completely free. Constraints: - Must be tomorrow. - Must be a continuous
 existing meetings. - Must include a Teams meeting link. If no time slot
 satisfies all constraints, explain why the request cannot be completed
 and provide the three closest alternative options.
-
+```
 ![](./226d25ac850010c8fb61de247014e6c001ffe991.png)
 
 20. Submit the prompt and wait for Cowork's response. A well-designed
@@ -458,12 +459,12 @@ Cowork capabilities used in this exercise:
 22. Type or paste the following prompt:
 
 **Sample prompt**
-
+```
 Act as my executive assistant. Apply these standing rules to next week:
 block two 90-minute focus blocks before noon; decline meetings with no
 agenda after asking the organizer for one; keep Friday afternoons free;
 and summarize every change you make for my approval before applying it.
-
+```
 23. Submit the prompt. This is a complex multi-rule instruction — watch
     the Workspace panel to see how Cowork breaks it into individual
     steps.
@@ -522,10 +523,10 @@ are written to your calendar. Items you rejected remain unchanged.
     the message bar at the bottom of the Cowork conversation:
 
 **Sample prompt**
-
+```
 Show me next week as a load summary: total meeting hours, focus hours,
 and largest free block per day.
-
+```
 26. Submit this prompt. Cowork will re-read your calendar (now including
     the changes you just approved) and calculate a structured summary.
 
@@ -611,6 +612,8 @@ troubleshooting tips.
 - Exercise 3 — The weekly load summary was generated and shows per-day
   meeting hours, focus hours, and largest free block.
 
+# Try Yourself: Complete the following exercise on your own
+
 ## Exercise 4: Out of Office Vacation Handoff
 
 ## The Problem
@@ -686,8 +689,6 @@ after you return.
 "OOO Wednesday" is that Wednesday. "Return +1" is the Tuesday after
 you're back. Set dates relative to next week.
 
-[TABLE]
-
 **TIP**
 
 You don't need to add all 8. Even 4 or 5 tasks gives Copilot Cowork
@@ -699,6 +700,7 @@ Create these 3 emails in your Outlook Drafts folder. Do not send them —
 leave them as drafts. Copilot Cowork will find them and flag them as
 "should go out before you leave."
 
+```
 Draft 1
 
 To: your own email
@@ -760,15 +762,15 @@ needs sign-off.
 Can you review by EOD tomorrow? Submitting Wednesday.
 
 — Alex
-
+```
 ## 1.3— Plant a Teams Thread
 
 In any Teams channel you use (or create a channel called Zava PM Team
 for this lab), post the following message as yourself. This simulates an
 unresolved thread that needs a response before you leave.
 
-Post this message in Teams:
-
+**Post this message in Teams:**
+```
 Quick question for the group — did we ever get final sign-off on the
 Phase 3 budget?
 
@@ -779,15 +781,13 @@ Need to know before the scope review Thursday.
 
 Leave it unanswered. Copilot Cowork will find it and flag it as an open
 item.
-
+```
 ## 1.4— Add Calendar Events
 
-Add these 5 meetings to your Outlook calendar for next Monday through
+Add four 5 meetings to your Outlook calendar for next Monday through
 Friday. Replace the attendee names with real people from your
 organization, or use your own email for all attendees if in a demo
 tenant.
-
-[TABLE]
 
 **⚠️ WARNING**
 
@@ -821,7 +821,7 @@ discovery of what you need to wrap up before you go out of office.
 
 1.  Do not attach any files. You want Copilot Cowork to read your live
     M365 data. Copy and paste this prompt and send it:
-
+```
 I'm going on vacation next Monday through Friday. Before we set anything
 
 up, I need you to look across my work and give me a complete picture of
@@ -859,8 +859,7 @@ own while I'm out
 
 Do not take any action yet. Just show me the full picture first.
 
-![](./media/image35.png)
-
+```
 **NOTE**
 
 The phrase "Do not take any action yet" is important. It keeps this as a
@@ -873,10 +872,6 @@ anything.
     across your three categories. Ensure it returned all relevant
     results (either your real work items or the sample data you added in
     the previous step).
-
-![](./media/image36.png)![](./media/image37.png)![](./media/image38.png)![](./media/image39.png)
-
-![](./media/image40.png)
 
 **💡 TIP**
 
@@ -899,16 +894,10 @@ That looks right. Go ahead and handle everything. Show me anything
 before it goes out, and get my approval before sending or posting
 anything.
 
-![](./media/image41.png)
-
-![](./media/image42.png)![](./media/image43.png)
-
 2.  Copilot Cowork will show you a structured plan, then execute step by
     step, pausing for your approval before each action. It will find
     your draft emails and ask for permission to send those. Select the
     **Send as is** option here to take care of that.
-
-![](./media/image44.png)![](./media/image45.png)![](./media/image46.png)
 
 **NOTE**
 
@@ -919,10 +908,9 @@ make the changes and reply with a new approval card.
 3.  Copilot Cowork will use the person you designated to cover for you
     and draft an email listing all of the tasks you have and their due
     dates. Review this email and press **Send**.
-
+```
 Prompt: Go ahead and send draft emails for 1,3,4,5
-
-![](./media/image47.png)![](./media/image48.png)
+```
 
 4.  Copilot Cowork will then go through line by line and start
     cancelling your conflicting events. Review the draft messages and
@@ -932,12 +920,8 @@ Prompt: Go ahead and send draft emails for 1,3,4,5
     office message for you to review. Review the message, noticing the
     risk level and click **Approve** to set it up.
 
-> ![](./media/image49.png)![](./media/image50.png)![](./media/image51.png)![](./media/image52.png)![](./media/image53.png)![](./media/image54.png)![](./media/image55.png)
-
 6.  Once finished, Copilot Cowork will give you a recap summary of
     everything it did for you
-
-![](./media/image56.png)
 
 ### Exercise 4.2: Set Up the Automatic Two-Day Check
 
@@ -956,7 +940,7 @@ within the next two to three business days.
 If you find a PTO block starting within two business days, I need you to
 look across my work and give me a complete picture of what I have at
 risk.  
-  
+```
 Please search across:  
 - My Outlook email — any unanswered threads, pending replies, or
 emails  
@@ -978,33 +962,26 @@ while I'm out
 If you find no upcoming PTO: do nothing and don't notify me.  
   
 Please set this up as a recurring scheduled prompt.
-
-![](./media/image57.png)![](./media/image58.png)![](./media/image59.png)
+```
 
 2.  Copilot Cowork will give you an approval panel to review the
     scheduled automation. Make sure it has everything you need and click
     **Activate and run.** This will run the scheduled task now so you
     can verify the output.
 
-![](./media/image60.png)
-
-![](./media/image61.png)
-
 3.  Watch as Copilot Cowork runs through all of your items to gather the
     risk check. In the Details panel you'll see there is a new
     "Scheduled" header with Active set to On, letting you know this is a
     recurring automation.
 
-![](./media/image62.png)![](./media/image63.png)
-
 If prompted:
 
 Since this is something you want to run automatically, when it asks
-about sending the assessment in Teams, select "Always allow post
+about sending the assessment in Teams, select 
+```
+"Always allow post
 message" so it won't keep asking you before it sends.
-
-![](./media/image64.png "Always Send")
-
+```
 Note: Review the results. Your scheduled task will run every Monday
 morning from here on out.
 

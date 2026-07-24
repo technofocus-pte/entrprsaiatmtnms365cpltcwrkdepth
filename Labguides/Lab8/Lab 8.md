@@ -10,7 +10,7 @@ processes, and external services directly into Copilot experiences.
 
 In this lab you will build a Financial Research Plugin that extends
 Microsoft 365 Copilot with live financial research capabilities by
-connecting to the SEC EDGAR public repository through a Remote Model
+connecting to the Contoso public repository through a Remote Model
 Context Protocol (MCP) Server.
 
 Instead of manually authoring the plugin, you will use a single

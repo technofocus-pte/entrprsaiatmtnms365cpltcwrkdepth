@@ -82,7 +82,10 @@ common reason skills turn out vague and unreliable.
 7.  Below your five answers, type out the complete Skill Spec template.
     Fill in each field for the Leadership Update skill you are about to
     build.
-
+  **Enter the following prompt:**
+```
+I want to create a new personal skill. Guide me through defining the skill name, description, category, and instructions. Help me write a SKILL.md file and save it to my OneDrive skills folder.
+```
 ***What you should see:***
 
 - Notepad shows both sections: the five planning questions and the

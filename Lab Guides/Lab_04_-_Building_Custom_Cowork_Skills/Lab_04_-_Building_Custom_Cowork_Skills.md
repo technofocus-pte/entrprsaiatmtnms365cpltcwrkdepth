@@ -139,19 +139,19 @@ In this lab, you will perform the following:
 
 18. Enter the following Skill Specification fields:
 
-```
-Skill Name:
+    ```
+    Skill Name:
 
-Trigger Phrase:
+    Trigger Phrase:
 
-Parameters:
+    Parameters:
 
-Apps It May Read:
+    Apps It May Read:
 
-Apps It May Write:
+    Apps It May Write:
 
-Output Format:
-```
+    Output Format:
+    ```
 
 19. Complete each field based on the requirements of the Leadership Update skill.
 
